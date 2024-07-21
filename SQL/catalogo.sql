@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2024 at 10:09 PM
+-- Generation Time: Jul 21, 2024 at 01:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,20 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_sniph_movies`
+-- Database: `catalogo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `avaliações`
+-- Table structure for table `avaliacoes`
 --
 
-CREATE TABLE `avaliações` (
+CREATE TABLE `avaliacoes` (
   `id` int(11) NOT NULL,
-  `id_obra` int(11) NOT NULL,
-  `nota` smallint(6) NOT NULL,
-  `observacoes` varchar(255) DEFAULT NULL
+  `id_obra` int(11) DEFAULT NULL,
+  `nota` int(11) DEFAULT NULL CHECK (`nota` >= 0 and `nota` <= 10),
+  `observacoes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -42,7 +42,8 @@ CREATE TABLE `avaliações` (
 
 CREATE TABLE `generos` (
   `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
+  `nome` varchar(50) NOT NULL,
+  `imagem` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -54,11 +55,11 @@ CREATE TABLE `generos` (
 CREATE TABLE `obras` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
-  `sinopse` varchar(255) NOT NULL,
-  `tipo` char(1) NOT NULL,
-  `id_genero` int(11) NOT NULL,
-  `assistida` tinyint(1) NOT NULL
+  `imagem` varchar(1000) NOT NULL,
+  `sinopse` text DEFAULT NULL,
+  `tipo` enum('filme','serie') NOT NULL,
+  `id_genero` int(11) DEFAULT NULL,
+  `assistida` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -66,9 +67,9 @@ CREATE TABLE `obras` (
 --
 
 --
--- Indexes for table `avaliações`
+-- Indexes for table `avaliacoes`
 --
-ALTER TABLE `avaliações`
+ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_obra` (`id_obra`);
 
@@ -90,9 +91,9 @@ ALTER TABLE `obras`
 --
 
 --
--- AUTO_INCREMENT for table `avaliações`
+-- AUTO_INCREMENT for table `avaliacoes`
 --
-ALTER TABLE `avaliações`
+ALTER TABLE `avaliacoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -112,10 +113,10 @@ ALTER TABLE `obras`
 --
 
 --
--- Constraints for table `avaliações`
+-- Constraints for table `avaliacoes`
 --
-ALTER TABLE `avaliações`
-  ADD CONSTRAINT `avaliações_ibfk_1` FOREIGN KEY (`id_obra`) REFERENCES `obras` (`id`);
+ALTER TABLE `avaliacoes`
+  ADD CONSTRAINT `avaliacoes_ibfk_1` FOREIGN KEY (`id_obra`) REFERENCES `obras` (`id`);
 
 --
 -- Constraints for table `obras`

@@ -1,6 +1,6 @@
 <?php
 
 define("HOST","localhost");
-define("BASE","veiculos");
+define("BASE","catalogo");
 define("USER","root");
 define("PASS","");
