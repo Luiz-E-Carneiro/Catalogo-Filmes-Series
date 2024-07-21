@@ -1,4 +1,3 @@
-
 -- GENERO 1 - ROMANCE
 
 -- FILMES
@@ -77,7 +76,7 @@ INSERT INTO obras (nome, imagem, sinopse, tipo, id_genero, assistida) VALUES
 
 INSERT INTO obras (nome, imagem, sinopse, tipo, id_genero, assistida) VALUES
 ('Outsider', 'https://images.justwatch.com/poster/167567025/s718/the-outsider.jpg', 'A investigação do assassinato de um menino se torna obscura quando uma entidade sobrenatural faz com que a equipe encarregada questione suas próprias crenças.', 'serie', 5, FALSE),
-('Marianne', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJTy_pDJbiCDReVPskMOBHIWCzQij0fMPv6w&s', 'De volta a sua cidade natal, uma famosa escritora de livros de terror descobre que o espírito que atormenta seus sonhos está provocando o caos no mundo real.', 'serie', 5, FALSE),
+('Marianne', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJTy_pDJbiCDReVPskMOBHIWCzQij0fMPv6w&s', 'De volta a sua cidade natal, uma famosa escritora de livros de terror descobre que o espírito que atormenta seus sonhos está provocando o caos no mundo real.', 'serie', 5, FALSE);
 
 -- GENERO 6 - SUSPENSE
 
