@@ -1,14 +1,19 @@
 <?php
-
-//NÃO FUNFOU O REQUIRE...
-
 require_once("./../backend/db/Database.php");
-
 require_once("./../backend/db/config.php");
 
 include_once('./../backend/Components/Header.php');
-
 include_once('./../backend/Components/HeaderBody.php');
+
+
+session_start();
+
+if (!isset($_SESSION['conditions'])) {
+    $_SESSION['conditions'] =[
+        "type" => "filme",
+        "genre" => "0"
+    ];
+}
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'Home';
 $page = preg_replace('/[^a-zA-Z0-9]/', '', $page);

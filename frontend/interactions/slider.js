@@ -3,10 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
 
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+    let clickTimeout;
+
     nextButton.addEventListener('click', () => {
         scrollContainer.scrollTo({
             top: 0,
-            left: scrollContainer.scrollWidth,
+            left: scrollContainer.scrollLeft + scrollContainer.clientWidth,
             behavior: 'smooth'
         });
     });
@@ -14,30 +20,38 @@ document.addEventListener('DOMContentLoaded', function() {
     prevButton.addEventListener('click', () => {
         scrollContainer.scrollTo({
             top: 0,
-            left: 0,
+            left: scrollContainer.scrollLeft - scrollContainer.clientWidth,
             behavior: 'smooth'
         });
     });
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
     scrollContainer.addEventListener('mousedown', (e) => {
         isDown = true;
-        scrollContainer.classList.add('active');
+        isDragging = false;
         startX = e.pageX - scrollContainer.offsetLeft;
         scrollLeft = scrollContainer.scrollLeft;
+        scrollContainer.classList.add('active');
+        clickTimeout = setTimeout(() => {
+            isDragging = true;
+        }, 200); // Set a delay to differentiate click from drag
     });
 
     scrollContainer.addEventListener('mouseleave', () => {
         isDown = false;
         scrollContainer.classList.remove('active');
+        clearTimeout(clickTimeout);
     });
 
-    scrollContainer.addEventListener('mouseup', () => {
+    scrollContainer.addEventListener('mouseup', (e) => {
+        if (!isDragging) {
+            const form = e.target.closest('form');
+            if (form) {
+                form.submit();
+            }
+        }
         isDown = false;
         scrollContainer.classList.remove('active');
+        clearTimeout(clickTimeout);
     });
 
     scrollContainer.addEventListener('mousemove', (e) => {
