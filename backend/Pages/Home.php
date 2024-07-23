@@ -9,7 +9,7 @@
         $query = "SELECT o.id, o.titulo, o.imagem, o.tipo, g.nome 
                 FROM obras o 
                 JOIN generos g ON o.id_genero = g.id
-                WHERE o.assistida = FALSE AND o.tipo = :tipo AND o.id_genero = :id_genero";
+                WHERE o.tipo = :tipo AND o.id_genero = :id_genero";
         $binds = [
                 ":tipo" => $_SESSION['conditions']['type'],
                 ":id_genero" => $_SESSION['conditions']['genre']
@@ -18,16 +18,13 @@
         $query = "SELECT o.id, o.titulo, o.imagem, o.tipo, g.nome 
                 FROM obras o 
                 JOIN generos g ON o.id_genero = g.id
-                WHERE o.assistida = FALSE AND o.tipo = :tipo";
+                WHERE o.tipo = :tipo";
         $binds = [
             ":tipo" => $_SESSION['conditions']['type']
             ];
     }
 
     $obras = $db->Select($query,$binds);
-
-
-    // $watched = $db->Select("SELECT * FROM obras WHERE assistida = TRUE");
     
 ?>
 
@@ -79,20 +76,15 @@
 </div>
 
 <div class="w-11/12 h-fit bg-slate-300 flex flex-col">
-    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries" ?></span>
+    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries"; ?> - <?php echo $genres[$_SESSION['conditions']['genre'] - 1]['nome'];?> </span>
     <div class="w-full h-fit bg-slate-200 flex flex-wrap justify-center gap-x-10 gap-y-5">
         <?php
-            
             shuffle($obras);
             foreach ($obras as $obra) {
                 $card = new Card($obra);
                 $card->renderCard();
             }
-
         ?>
-    </div>
-    <div class="w-full h-fit">
-        <h3>Assitidos (Vem depois dos que ainda não foram)</h3>
     </div>
 </div>
 <script src="interactions/slider.js"></script>
