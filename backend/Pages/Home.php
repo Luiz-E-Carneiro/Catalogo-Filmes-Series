@@ -79,7 +79,7 @@
 </div>
 
 <div class="w-11/12 h-fit bg-slate-300 flex flex-col">
-    <span>?Filmes? - Novidades</span>
+    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries" ?></span>
     <div class="w-full h-fit bg-slate-200 flex flex-wrap justify-center gap-x-10 gap-y-5">
         <?php
             
