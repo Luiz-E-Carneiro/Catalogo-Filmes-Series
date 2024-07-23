@@ -25,7 +25,6 @@
     }
 
     $obras = $db->Select($query,$binds);
-    
 ?>
 
 <div class="relative w-full p-4 flex flex-col">
@@ -33,7 +32,7 @@
     <button id="prev" class="absolute z-10 left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded"><</button>
     <div class="overflow-hidden">
         <div id="scrollContainer" class="flex w-full overflow-hidden space-x-4 transition-transform select-none">
-            <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-red-400 text-white text-center cursor-pointer hover:border-4 hover:border-red-900 box-border">
+            <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-red-400 text-white text-center cursor-pointer hover:border-4 hover:border-red-900">
                 <input type="hidden" name="genre_id" value="0">
                 <img src="https://musicaecinema.com.br/wp-content/uploads/2024/01/filmes-mais-assistidos-streaming.webp" alt="" class="w-full h-full max-h-full object-cover" draggable="false">
                 <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-left"> Todos </div>
@@ -76,7 +75,7 @@
 </div>
 
 <div class="w-11/12 h-fit bg-slate-300 flex flex-col">
-    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries"; ?> - <?php echo $genres[$_SESSION['conditions']['genre'] - 1]['nome'];?> </span>
+    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries"; ?> - <?php echo $_SESSION['conditions']['genre'] - 1 >= 0? $genres[$_SESSION['conditions']['genre'] - 1]['nome'] : "Todos"?> </span>
     <div class="w-full h-fit bg-slate-200 flex flex-wrap justify-center gap-x-10 gap-y-5">
         <?php
             shuffle($obras);
@@ -87,4 +86,5 @@
         ?>
     </div>
 </div>
+<script src="interactions/card.js"></script>
 <script src="interactions/slider.js"></script>

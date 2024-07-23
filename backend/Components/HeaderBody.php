@@ -4,6 +4,7 @@
         <a href="index.php?page=Home" class="text-white">Home</a>
         <a href="index.php?page=Watched" class="text-white">Assitidos</a>
         <a href="index.php?page=Favorites" class="text-white">Favoritos</a>
+        <a href="index.php?page=Review" class="text-white">Avaliações</a>
         <a href="./../backend/actions/destroy_session.php" class="text-white">Destuir Sessão</a>
     </div>
     <style>
