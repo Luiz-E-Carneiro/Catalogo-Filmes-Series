@@ -6,7 +6,7 @@
     
     
     if($_SESSION['conditions']['genre'] > 0 AND $_SESSION['conditions']['genre'] <= count($genres)){
-        $query = "SELECT o.id, o.nome, o.imagem, g.nome 
+        $query = "SELECT o.id, o.titulo, o.imagem, o.tipo, g.nome 
                 FROM obras o 
                 JOIN generos g ON o.id_genero = g.id
                 WHERE o.assistida = FALSE AND o.tipo = :tipo AND o.id_genero = :id_genero";
@@ -15,7 +15,7 @@
                 ":id_genero" => $_SESSION['conditions']['genre']
                 ];
     }else {
-        $query = "SELECT o.id, o.nome, o.imagem, g.nome 
+        $query = "SELECT o.id, o.titulo, o.imagem, o.tipo, g.nome 
                 FROM obras o 
                 JOIN generos g ON o.id_genero = g.id
                 WHERE o.assistida = FALSE AND o.tipo = :tipo";
@@ -80,10 +80,15 @@
 
 <div class="w-11/12 h-fit bg-slate-300 flex flex-col">
     <span>?Filmes? - Novidades</span>
-    <div class="w-full h-fit bg-slate-200">
+    <div class="w-full h-fit bg-slate-200 flex flex-wrap justify-center gap-x-10 gap-y-5">
         <?php
-            print_r($obras);
             
+            shuffle($obras);
+            foreach ($obras as $obra) {
+                $card = new Card($obra);
+                $card->renderCard();
+            }
+
         ?>
     </div>
     <div class="w-full h-fit">

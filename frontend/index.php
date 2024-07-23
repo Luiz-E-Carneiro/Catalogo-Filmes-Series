@@ -2,6 +2,8 @@
 require_once("./../backend/db/Database.php");
 require_once("./../backend/db/config.php");
 
+require_once("./../backend/Components/Card.php");
+
 include_once('./../backend/Components/Header.php');
 include_once('./../backend/Components/HeaderBody.php');
 
