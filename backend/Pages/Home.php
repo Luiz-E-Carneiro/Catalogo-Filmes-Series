@@ -28,55 +28,55 @@
 ?>
 
 <div class="relative w-full p-4 flex flex-col">
-    <h2>Escolha pelo gênero</h2>
-    <button id="prev" class="absolute z-10 left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded"><</button>
+    <h2 class="text-white font-bold text-2xl py-2">Escolha pelo gênero</h2>
+    <button id="prev" class="absolute z-10 left-0 top-1/2 transform -translate-y-1/2 bg-[#1052ce] text-white px-6 py-4 rounded"><</button>
     <div class="overflow-hidden">
         <div id="scrollContainer" class="flex w-full overflow-hidden space-x-4 transition-transform select-none">
-            <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-red-400 text-white text-center cursor-pointer hover:border-4 hover:border-red-900">
+            <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-black text-white text-center cursor-pointer hover:border-4 hover:border-[#1052ce]">
                 <input type="hidden" name="genre_id" value="0">
                 <img src="https://musicaecinema.com.br/wp-content/uploads/2024/01/filmes-mais-assistidos-streaming.webp" alt="" class="w-full h-full max-h-full object-cover" draggable="false">
-                <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-left"> Todos </div>
+                <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-left text-white font-bold text-lg tracking-wider">Todos</div>
             </form>
             <?php foreach ($genres as $genre) : ?>
-                <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-red-400 text-white text-center cursor-pointer hover:border-4 hover:border-red-900 box-border">
+                <form action="./../backend/actions/save_conditions.php" method="POST" class="relative flex-shrink-0 w-1/4 bg-black text-white text-center cursor-pointer hover:border-4 hover:border-[#1052ce]">
                     <input type="hidden" name="genre_id" value="<?= $genre['id'] ?>">
                     <img src="<?= $genre['imagem'] ?>" alt="" class="w-full h-full max-h-full object-cover" draggable="false">
-                    <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-2 text-left"><?= $genre['nome'] ?></div>
+                    <div class="absolute bottom-0 left-0 bg-black bg-opacity-75 p-2 text-left text-white font-bold text-lg tracking-wider"><?= $genre['nome'] ?></div>
                 </form>
             <?php endforeach; ?>
         </div>
     </div>
-    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded">></button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#1052ce] text-white px-6 py-4 rounded">></button>
 </div>
 
-<div class="w-11/12 h-fit bg-slate-600 flex justify-between">
-    <div class="flex items-center">
-        <span>Tipo:</span>
+<div class="w-11/12 h-fit bg-[#073763] flex justify-between items-center p-4  rounded-t-md">
+    <div class="flex items-center gap-x-4">
         <div class="flex">
         <form action="./../backend/actions/save_conditions.php" method="post" class="w-fit h-fit">
                 <input type="hidden" name="type" value="filme">
-                <button type="submit" class="bg-slate-300 rounded-s-lg border-r-2 border-black">Filmes</button>
+                <button type="submit" class="<?php echo $_SESSION['conditions']['type'] == 'filme' ? 'bg-[#1052ce]' : 'bg-slate-500' ?> rounded-s-lg border-r-2 border-[#073763] text-white font-bold text-2xl p-2">Filmes</button>
             </form>
             <form action="./../backend/actions/save_conditions.php" method="post" class="w-fit h-fit">
                 <input type="hidden" name="type" value="serie">
-                <button type="submit" class="bg-slate-300 rounded-e-lg border-l-2 border-black">Séries</button>
+                <button type="submit" class="<?php echo $_SESSION['conditions']['type'] == 'serie' ? 'bg-[#1052ce]' : 'bg-slate-500' ?> rounded-e-lg border-l-2 border-[#073763] text-white font-bold text-2xl p-2">Séries</button>
             </form>
         </div>
     </div>
-    <div class="">
-        
-        <button>
-            Adicionar Filme/Série
+    <div class="flex gap-4">
+        <button class="text-2xl text-white font-bold bg-[#1052ce] p-2 rounded-xl">
+            + Adicionar <?php echo $_SESSION['conditions']['type'] == "filme" ? "Filme" : "Série" ?>
         </button>
-        <button>
-            Adicionar Gênero
+        <button class="text-2xl text-white font-bold bg-[#1052ce] p-2 rounded-xl">
+            + Adicionar Gênero
         </button>
     </div>
 </div>
 
-<div class="w-11/12 h-fit bg-slate-300 flex flex-col">
-    <span>Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries"; ?> - <?php echo $_SESSION['conditions']['genre'] - 1 >= 0? $genres[$_SESSION['conditions']['genre'] - 1]['nome'] : "Todos"?> </span>
-    <div class="w-full h-fit bg-slate-200 flex flex-wrap justify-center gap-x-10 gap-y-5">
+<div class="w-11/12 h-fit bg-[#4d759a] flex flex-col rounded-b-lg overflow-hidden">
+    <div class="p-4">
+        <span class="text-white text-xl">Novidades - <?php echo $_SESSION['conditions']['type'] == 'filme' ? 'Filmes' : "Séries"; ?> - <?php echo $_SESSION['conditions']['genre'] - 1 >= 0? $genres[$_SESSION['conditions']['genre'] - 1]['nome'] : "Todos"?> </span>
+    </div>
+    <div class="w-full h-fit flex flex-wrap justify-center gap-x-10 gap-y-5 bg-[#4d759a] pb-4">
         <?php
             shuffle($obras);
             foreach ($obras as $obra) {
