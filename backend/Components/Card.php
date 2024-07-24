@@ -8,7 +8,7 @@ final class Card
     }
 
     public function renderCard() {
-        $card = '<form action="./../backend/Pages/Description.php" method="post" class="w-64 max-h-80 relative card">';
+        $card = '<form action="./../backend/Pages/Description.php" method="post" class="w-64 max-h-80 relative card rounded-md overflow-hidden">';
             $card .= '<input type="hidden" name="id" value="'. $this->data['id'].'">'; 
             $card .= '<img src=' . $this->data['imagem'] .' alt="Foto da capa da obra '. $this->data['titulo'] .'" class="w-full h-full">';
             
