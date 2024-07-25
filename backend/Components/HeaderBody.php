@@ -1,11 +1,11 @@
 <header class="w-full h-20 bg-[#191919] flex g-4 justify-between items-center px-4">
     <img src="" alt="Logo">
     <div class="w-fit h-max flex gap-8">
-        <a href="index.php?page=Home" class="text-white font-bold text-xl">Home</a>
-        <a href="index.php?page=Watched" class="text-white font-bold text-xl">Assitidos</a>
-        <!-- <a href="index.php?page=Favorites" class="text-white font-bold text-xl">Favoritos</a> -->
-        <a href="index.php?page=Reviewed" class="text-white font-bold text-xl">Avaliações</a>
-        <a href="./../backend/actions/destroy_session.php" class="text-white font-bold text-xl">Destuir Sessão</a>
+        <a href="index.php?page=Home" class="md:text-xl text-white font-bold sm:text-lg">Home</a>
+        <a href="index.php?page=Watched" class="md:text-xl text-white font-bold sm:text-lg">Assitidos</a>
+        <!-- <a href="index.php?page=Favorites" class="md:text-xl text-white font-bold sm:text-lg">Favoritos</a> -->
+        <a href="index.php?page=Reviewed" class="md:text-xl text-white font-bold sm:text-lg">Avaliações</a>
+        <a href="./../backend/actions/destroy_session.php" class="md:text-xl text-white font-bold sm:text-lg">Destuir Sessão</a>
     </div>
     <style>
         .description {

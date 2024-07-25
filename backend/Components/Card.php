@@ -17,9 +17,19 @@ final class Card
                 $card .= '<div>';
 
                 if($this->data['tipo'] == "serie"){
-                    $card .= '<span class="text-white font-bold">Série - '. $this->data['nome'].'</span>';    
+                    if(isset($this->data['nome'])){
+                        $card .= '<span class="text-white font-bold">Série - ' . $this->data['nome'];
+                    }else {
+                        $card .= '<span class="text-white font-bold">Série';
+                    }
+                    $card .=  '</span>';    
                 }else {
-                    $card .= '<span class="text-white font-bold">Filme - '. $this->data['nome'].'</span>';    
+                    if(isset($this->data['nome'])){
+                        $card .= '<span class="text-white font-bold">Filme - ' . $this->data['nome'];
+                    }else {
+                        $card .= '<span class="text-white font-bold">Filme';
+                    }
+                    $card .=  '</span>';    
                 }
 
                 $card .= '</div>';
