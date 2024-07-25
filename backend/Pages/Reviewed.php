@@ -22,8 +22,13 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
                                     FROM avaliacoes a JOIN obras o ON  a.id_obra = o.id 
                                     JOIN generos g ON o.id_genero = g.id 
                                     WHERE o.id = :id_obra", [":id_obra" => $review['id_obra']]);
+            
+            if(count($data) == 0) {
+                echo '<span class="text-white text-xl font-semibold">Não há nenhuma obra assistida</span>';
+                return;
+            }
+                                    
             ?>
-
             <div class='w-2/5 h-fit bg-[#191919] flex flex-col gap-2 p-4 rounded-xl'>
                 <div class="w-full">
                     <h2 class="py-4 text-white text-xl font-bold w-full text-center"><?php echo $data[0]["titulo"] ?></h2>

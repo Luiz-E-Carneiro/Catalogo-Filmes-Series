@@ -22,7 +22,7 @@ final class Card
                     }else {
                         $card .= '<span class="text-white font-bold">Série';
                     }
-                    $card .=  '</span>';    
+                    $card .= '</span>';    
                 }else {
                     if(isset($this->data['nome'])){
                         $card .= '<span class="text-white font-bold">Filme - ' . $this->data['nome'];

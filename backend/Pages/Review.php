@@ -19,7 +19,7 @@ include_once('./../Components/HeaderPages.php');
         <label for="nota">
             Nota:
         </label>
-        <input type="number" name="nota">
+        <input type="number" name="nota" min="0" max="10">
     </div>
     <div class="flex items-start">
         <label for="observacoes">

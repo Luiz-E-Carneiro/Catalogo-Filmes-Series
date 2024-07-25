@@ -14,6 +14,10 @@ $watched = $db->Select("SELECT o.id, o.titulo, o.imagem, o.tipo FROM obras o WHE
 <div class="w-11/12 h-fit bg-[#4d759a] flex flex-col rounded-b-lg overflow-hidden">
     <div class="w-full h-fit flex flex-wrap justify-center gap-x-10 gap-y-5 bg-[#4d759a] py-4">
         <?php
+        if(count($watched)  == 0){
+            echo '<span class="text-white text-xl font-semibold">Não há nenhuma obra assistida</span>';
+            return;
+        }
         shuffle($watched);
         foreach ($watched as $obra) {
             $card = new Card($obra);

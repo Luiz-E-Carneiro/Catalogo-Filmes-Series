@@ -74,7 +74,7 @@ include_once('./../Components/HeaderPages.php');
     </div>
     <div class="grow flex flex-col justify-center items-center gap-4">
         <img src="<?php echo $data['imagem'] ?>" alt="Imagem da capa da obra <?php echo $data['titulo'] ?>" class="w-64 max-h-80">
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 items-center">
             <!-- <button class="bg-amber-400 p-2 rounded-lg font-bold text-lg text-amber-700">
                     Favoritar
                 </button> -->
@@ -98,6 +98,14 @@ include_once('./../Components/HeaderPages.php');
                         echo '<span>Desmarcar como assitido</span>';
                     }
                     ?>
+                </button>
+            </form>
+
+            <form action="./../Edit.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+                <button type="submit" class="bg-cyan-500 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
+                    <span class="material-symbols-outlined">edit</span>
+                    <span class="text-slate-700">Editar Obra</span>
                 </button>
             </form>
 

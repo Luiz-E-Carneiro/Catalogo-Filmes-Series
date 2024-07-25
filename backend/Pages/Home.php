@@ -66,13 +66,16 @@ $obras = $db->Select($query, $binds);
             </form>
         </div>
     </div>
-    <div class="flex gap-4">
-        <button class="md:text-2xl text-white font-semibold bg-[#1052ce] p-2 rounded-xl sm:text-lg">
-            + Adicionar <?php echo $_SESSION['conditions']['type'] == "filme" ? "Filme" : "Série" ?>
-        </button>
-        <button class="md:text-2xl text-white font-semibold bg-[#1052ce] p-2 rounded-xl sm:text-lg">
+    <div class="flex justify-end">
+        <form action="./../backend/Pages/Add.php" method="post">
+            <input type="hidden" name="tipo" value="<?php echo $_SESSION['conditions']['type'] ?>">
+            <button class="md:text-2xl text-white font-semibold bg-[#1052ce] p-2 rounded-xl sm:text-lg">
+                + Adicionar <?php echo $_SESSION['conditions']['type'] == "filme" ? "Filme" : "Série" ?>
+            </button>
+        </form>
+        <!-- <button class="md:text-2xl text-white font-semibold bg-[#1052ce] p-2 rounded-xl sm:text-lg">
             + Adicionar Gênero
-        </button>
+        </button> -->
     </div>
 </div>
 
