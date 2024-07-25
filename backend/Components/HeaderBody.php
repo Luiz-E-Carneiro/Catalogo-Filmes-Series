@@ -3,8 +3,8 @@
     <div class="w-fit h-max flex gap-8">
         <a href="index.php?page=Home" class="text-white font-bold text-xl">Home</a>
         <a href="index.php?page=Watched" class="text-white font-bold text-xl">Assitidos</a>
-        <a href="index.php?page=Favorites" class="text-white font-bold text-xl">Favoritos</a>
-        <a href="index.php?page=Review" class="text-white font-bold text-xl">Avaliações</a>
+        <!-- <a href="index.php?page=Favorites" class="text-white font-bold text-xl">Favoritos</a> -->
+        <a href="index.php?page=Reviewed" class="text-white font-bold text-xl">Avaliações</a>
         <a href="./../backend/actions/destroy_session.php" class="text-white font-bold text-xl">Destuir Sessão</a>
     </div>
     <style>

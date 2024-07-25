@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollContainer.classList.add('active');
         clickTimeout = setTimeout(() => {
             isDragging = true;
-        }, 200); // Set a delay to differentiate click from drag
+        }, 200);
     });
 
     scrollContainer.addEventListener('mouseleave', () => {
