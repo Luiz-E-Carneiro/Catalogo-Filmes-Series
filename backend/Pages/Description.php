@@ -47,7 +47,7 @@ include_once('./../Components/HeaderPages.php');
         <div class="flex flex-col gap-4">
 
             <?php if (!$resposta_avaliacao[0]['resposta']) { ?>
-                <form action="./Review.php" method="post">
+                <form action="./Reviewing.php" method="post">
                     <input type="hidden" name="id_obra" value=<?php echo $data['id'] ?>">
                     <input type="hidden" name="titulo" value="<?php echo $data['titulo'] ?>">
                     <button type="submit" class="text-2xl text-white font-bold bg-[#1052ce] p-2 rounded-xl">
@@ -107,7 +107,7 @@ include_once('./../Components/HeaderPages.php');
                     <span class="text-slate-700">Editar Obra</span>
                 </button>
             </form>
-            <form action="./delete_obra.php" method="post">
+            <form action="./../actions/delete_obra.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
                 <button type="submit" class="bg-red-400 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
                     <span class="material-symbols-outlined">delete</span>

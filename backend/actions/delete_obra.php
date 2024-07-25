@@ -5,18 +5,17 @@ require_once("./../db/Database.php");
 
 $db = new Database();
 
-$query = "DELETE FROM carros WHERE id = :id";
+$query = "DELETE FROM obras WHERE id = :id";
 $binds = [
-    ":id" => $_GET["id"]
+    ":id" => $_POST["id"]
 ];
 
 $db->execute($query, $binds);
 
-
 $success = $db->execute($query, $binds);
 
 if ($success) {
-    header("location: index.php");
+    header("location: ./../../frontend/index.php");
 } else {
     echo "Deu erro :(";
 }

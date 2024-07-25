@@ -3,6 +3,7 @@
 $db = new Database();
 
 $reviews = $db->Select("SELECT * FROM avaliacoes");
+// join com obras
 
 ?>
 
@@ -22,16 +23,30 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
                                     FROM avaliacoes a JOIN obras o ON  a.id_obra = o.id 
                                     JOIN generos g ON o.id_genero = g.id 
                                     WHERE o.id = :id_obra", [":id_obra" => $review['id_obra']]);
-            
-            if(count($data) == 0) {
+
+            if (count($data) == 0) {
                 echo '<span class="text-white text-xl font-semibold">Não há nenhuma obra assistida</span>';
                 return;
             }
-                                    
-            ?>
+
+        ?>
             <div class='w-2/5 h-fit bg-[#191919] flex flex-col gap-2 p-4 rounded-xl'>
-                <div class="w-full">
-                    <h2 class="py-4 text-white text-xl font-bold w-full text-center"><?php echo $data[0]["titulo"] ?></h2>
+                <div class="w-full flex">
+                    <h2 class="py-4 text-white text-xl font-bold w-full"><?php echo $data[0]["titulo"] ?></h2>
+                    <div class="w-fit flex gap-2">
+                        <form action="./../actions/save_edit_review.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $review['id'] ?>">
+                            <button class="bg-amber-200 flex justify-center items-center rounded">
+                                <span class="material-symbols-outlined text-amber-600">edit</span>
+                            </button>
+                        </form>
+                        <form action="./../Pages/Reviewing.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $review['id'] ?>">
+                            <button class="bg-red-200 flex justify-center items-center rounded">
+                                <span class="material-symbols-outlined text-red-600">delete</span>
+                            </button>
+                        </form>
+                    </div>
                     <hr>
                 </div>
                 <div class="w-full px-2 flex gap-2">
