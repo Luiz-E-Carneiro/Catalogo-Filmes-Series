@@ -23,4 +23,3 @@ $watched = $db->Select("SELECT o.id, o.titulo, o.imagem, o.tipo FROM obras o WHE
     </div>
 </div>
 <script src="interactions/card.js"></script>
-<script src="interactions/slider.js"></script>
