@@ -25,6 +25,7 @@ if ($_SESSION['conditions']['genre'] > 0 and $_SESSION['conditions']['genre'] <=
 }
 
 $obras = $db->Select($query, $binds);
+
 ?>
 
 <div class="relative w-full p-4 flex flex-col">

@@ -9,8 +9,14 @@ $tipo = $_POST['tipo'] == "filme" ? 'Filme' : 'Série';
 
 $genres = $db->Select("SELECT * FROM generos");
 
+include_once('./../Components/Header.php');
+include_once('./../Components/HeaderPages.php');
 ?>
-
+<a href="./../../frontend/index.php?page=Home" class="m-4">
+    <button class="text-4xl text-white font-bold px-4 py-2 rounded-xl bg-transparent hover:bg-slate-400">
+        <span class="material-symbols-outlined text-4xl">arrow_back</span>
+    </button>
+</a>
 <form action="./../../backend/actions/add_obra.php" method="post" class="px-4 py-2 flex flex-col gap-2">
     <input type="hidden" name="tipo" value="<?php echo $_POST['tipo']  ?>">
     <div class="w-full">
@@ -49,3 +55,7 @@ $genres = $db->Select("SELECT * FROM generos");
         Adicionar Obra
     </button>
 </form>
+
+<?php
+include_once('./../Components/Footer.php');
+?>

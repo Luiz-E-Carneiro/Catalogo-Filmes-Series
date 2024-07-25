@@ -28,7 +28,7 @@ $resposta_avaliacao = $db->Select($query2, $binds);
 include_once('./../Components/Header.php');
 include_once('./../Components/HeaderPages.php');
 ?>
-<div class="relative w-11/12 bg-gradient-to-r from-[#4d759a] to-90% flex gap-10 p-10 rounded-lg mt-4">
+<div class="relative w-11/12 bg-gradient-to-r from-[#4d759a] to-90% flex gap-10 px-10 py-6 rounded-lg mt-4">
     <a href="./../../frontend/index.php?page=Home" class="absolute top-0 right-1">
         <button class="text-4xl text-white font-bold px-4 py-2 rounded-xl bg-transparent hover:bg-gradient-to-l from-[#ccd0c8] to-90%">
             <span class="material-symbols-outlined text-4xl">arrow_back</span>
@@ -72,9 +72,9 @@ include_once('./../Components/HeaderPages.php');
 
         </div>
     </div>
-    <div class="grow flex flex-col justify-center items-center gap-4">
+    <div class="grow flex flex-col justify-start items-center gap-4">
         <img src="<?php echo $data['imagem'] ?>" alt="Imagem da capa da obra <?php echo $data['titulo'] ?>" class="w-64 max-h-80">
-        <div class="flex flex-col gap-4 items-center">
+        <div class="flex flex-col gap-2 items-center">
             <!-- <button class="bg-amber-400 p-2 rounded-lg font-bold text-lg text-amber-700">
                     Favoritar
                 </button> -->
@@ -100,12 +100,18 @@ include_once('./../Components/HeaderPages.php');
                     ?>
                 </button>
             </form>
-
-            <form action="./../Edit.php" method="post">
+            <form action="./Edit.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
-                <button type="submit" class="bg-cyan-500 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
+                <button type="submit" class="bg-blue-400 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
                     <span class="material-symbols-outlined">edit</span>
                     <span class="text-slate-700">Editar Obra</span>
+                </button>
+            </form>
+            <form action="./delete_obra.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+                <button type="submit" class="bg-red-400 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
+                    <span class="material-symbols-outlined">delete</span>
+                    <span class="text-slate-700">Excluir Obra</span>
                 </button>
             </form>
 
