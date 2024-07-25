@@ -34,13 +34,13 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
                 <div class="w-full flex">
                     <h2 class="py-4 text-white text-xl font-bold w-full"><?php echo $data[0]["titulo"] ?></h2>
                     <div class="w-fit flex gap-2">
-                        <form action="./../actions/save_edit_review.php" method="post">
+                        <form action="./../backend/Pages/Edit_Review.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $review['id'] ?>">
                             <button class="bg-amber-200 flex justify-center items-center rounded">
                                 <span class="material-symbols-outlined text-amber-600">edit</span>
                             </button>
                         </form>
-                        <form action="./../Pages/Reviewing.php" method="post">
+                        <form action="./../backend/actions/delete_review.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $review['id'] ?>">
                             <button class="bg-red-200 flex justify-center items-center rounded">
                                 <span class="material-symbols-outlined text-red-600">delete</span>
