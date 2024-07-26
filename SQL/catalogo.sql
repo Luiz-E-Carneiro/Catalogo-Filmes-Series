@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2024 at 06:09 PM
+-- Generation Time: Jul 26, 2024 at 04:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,6 +33,13 @@ CREATE TABLE `avaliacoes` (
   `nota` int(11) DEFAULT NULL CHECK (`nota` >= 0 and `nota` <= 10),
   `observacoes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `avaliacoes`
+--
+
+INSERT INTO `avaliacoes` (`id`, `id_obra`, `nota`, `observacoes`) VALUES
+(12, 22, 6, 'Ficção mal planejada, com bom enredo e ótimos atores!!');
 
 -- --------------------------------------------------------
 
@@ -84,7 +91,6 @@ INSERT INTO `obras` (`id`, `titulo`, `imagem`, `sinopse`, `tipo`, `id_genero`, `
 (1, 'Cinquenta Tons de Cinza', 'https://br.web.img2.acsta.net/pictures/14/11/14/13/47/211678.jpg', 'A estudante de literatura Anastasia Steele, de 21 anos, entrevista o jovem bilionário Christian Grey, como um favor a sua colega de quarto Kate Kavanagh. Ela vê nele um homem atraente e brilhante, e ele fica igualmente fascinado por ela. Embora seja sexualmente inexperiente, Anastasia mergulha de cabeça nessa relação e descobre os prazeres do sadomasoquismo, tornando-se o objeto de submissão do enigmático Grey.', 'filme', 1, 0),
 (2, 'Uma Ideia de Você', 'https://media.filmelier.com/tit/ObQWTl/poster/uma-ideia-de-voce_PDghFFU.jpeg', 'Solène, uma mãe solteira de 40 anos embarca em um romance inesperado com Hayes Campbell, o vocalista de 24 anos da August Moon, a boy band mais popular do planeta.', 'filme', 1, 0),
 (3, 'Um dia', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR9b0dJ4vwEkec1DPgIDRCYIxBtc49gM4JCXEa-O0oz56kGTONK', 'Em Um Dia, Emma (Anne Hathaway) e Dexter (Jim Sturgess) se conheceram na faculdade, em 15 de julho. Essa data serve de base para acompanhar a vida deles ao longo de 20 anos. Nesse período, Emma enfrenta dificuldades para ser bem sucedida na carreira, enquanto Dexter consegue sucesso fácil, tanto no trabalho quanto com as mulheres. Mesmo passando por diversas pessoas, a vida de ambos continua sempre, de alguma forma, interligada.', 'filme', 1, 0),
-(4, '365 DNI', 'https://br.web.img3.acsta.net/c_310_420/pictures/20/03/02/09/29/5096195.jpg', 'Laura é uma diretora de vendas que embarca em uma viagem à Sicília para salvar seu relacionamento. Lá, ela conhece Massimo, um membro da máfia siciliana, que a sequestra e lhe dá 365 dias para se apaixonar por ele.', 'filme', 1, 0),
 (5, 'Diário de uma Paixão', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQItcIG5CYEvd9Q8n9PYgDgN793r3Xm8rRi-DtogVX9sbZda1wg', 'Na década de 1940, na Carolina do Sul, o operário Noah Calhoun e a rica Allie se apaixonam desesperadamente, mas os pais da jovem não aprovam o namoro. Noah é enviado para lutar na Segunda Guerra Mundial, e parece ser o fim do romance. Enquanto isso, Allie se envolve com outro homem. No entanto, a paixão deles ainda não acabou quando Noah retorna para a pequena cidade anos mais tarde, próximo ao casamento de Allie.', 'filme', 1, 0),
 (6, 'Como Eu Era Antes de Você', 'https://br.web.img3.acsta.net/c_310_420/pictures/16/02/03/19/11/303307.jpg', 'Em Como Eu Era Antes de Você, o rico e bem sucedido Will (Sam Claflin) leva uma vida repleta de conquistas, viagens e esportes radicais até ser atingido por uma moto. O acidente o torna tetraplégico, obrigando-o a permanecer em uma cadeira de rodas. A situação o torna depressivo e extremamente cínico, para a preocupação de seus pais (Janet McTeer e Charles Dance). É neste contexto que Louisa Clark (Emilia Clarke) é contratada para cuidar de Will. De origem modesta, com dificuldades financeiras e sem grandes aspirações na vida, ela faz o possível para melhorar o estado de espírito de Will e, aos poucos, acaba se envolvendo com ele.', 'filme', 1, 0),
 (7, 'Business Proposal', 'https://m.media-amazon.com/images/M/MV5BNjlhMDc5NDMtZGY2Mi00ZTMxLTk0Y2ItN2VjZDQ1ZmRiZGQ2XkEyXkFqcGdeQXVyMTMzODk3NDU0._V1_FMjpg_UX1000_.jpg', 'Ha-ri vai a um encontro às cegas se passando pela amiga e pronta para dispensar o pretendente. Mas o plano dá errado, e ele acaba fazendo uma proposta para ela.', 'serie', 1, 0),
@@ -100,7 +106,7 @@ INSERT INTO `obras` (`id`, `titulo`, `imagem`, `sinopse`, `tipo`, `id_genero`, `
 (17, 'Debi & Lóide 2 - Quando Debi Conheceu Lóide', 'https://f001.backblazeb2.com/file/papocine/2014/11/20141114-debi-e-loide-2-papo-de-cinema1.jpg', 'Após anos recebendo educação em casa, o não exatamente brilhante adolescente Harry Dunne finalmente entra para a escola pública e conhece outro aluno com dificuldades de aprendizado, Lloyd Christmas. A dupla acaba em uma classe para estudantes com necessidades especiais, criada pelo diretor Collins para tirar dinheiro dos pais e bancar seu apartamento no Havaí. A falcatrua é descoberta pela aluna Jessica, que pede ajuda a Harry e Lloyd para desmascarar Collins.', 'filme', 3, 0),
 (18, 'Mistério em Paris', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_YOQ1K-ZTpbBTK0KyqZSY3BGFBUCGLgRby4QpxloD7KstoIOj', 'Nick e Audrey Spitz abrem uma agência de investigação e finalmente conseguem um caso importante: um amigo bilionário é sequestrado no dia de seu casamento.', 'filme', 3, 0),
 (19, 'BoJack Horseman', 'https://lh3.googleusercontent.com/proxy/SHdJ9G6q8E3D7hlov6tqNCrXbx8cv5ExUVzhVyUy5Bolg_0RJuzlTL-Afl-yT5qdXsAldaHiQ0xNWQcmo56NnwmhNCBttKNG', 'BoJack Horseman, um cavalo humanoide, busca um retorno a Hollywood anos depois de sua fama como estrela de uma sitcom nos anos 1990. Com a ajuda de um amigo humano e sua ex-namorada felina, ele se esforça para recuperar sua carreira e sua dignidade.', 'serie', 3, 0),
-(20, 'Eu, a Patroa e as Crianças', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH1yboaxwiyoqTflQI9hJIS7caYlBumKVeiA&s', 'O amoroso pai de família Michael Kyle engravidou Janet quando ela ainda era uma adolescente. Os dois se casaram e tiveram três filhos, mas o fantasma de sua própria história faz com que Michael alimente um verdadeiro pavor de que o mesmo aconteça com seus filhos. Por isso, ele sonha com uma família à moda antiga, mas, na prática, vive uma realidade bem diferente. Sua mulher não é uma dona de casa exemplar, mas uma trabalhadora em ascensão; seu filho adolescente é fã dos grandes astros do rap; sua filha de 15 anos, além de não demonstrar recato, faz de tudo para impressionar os garotos; e a caçula, que não tem nada de dócil e obediente, é contestadora e esperta o suficiente para superar a argumentação do pai na maioria absoluta das vezes.', 'serie', 3, 0),
+(20, 'Eu, a Patroa e as Crianças', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH1yboaxwiyoqTflQI9hJIS7caYlBumKVeiA&s', 'O amoroso pai de família Michael Kyle engravidou Janet quando ela ainda era uma adolescente. Os dois se casaram e tiveram três filhos, mas o fantasma de sua própria história faz com que Michael alimente um verdadeiro pavor de que o mesmo aconteça com seus filhos. Por isso, ele sonha com uma família à moda antiga, mas, na prática, vive uma realidade bem diferente. Sua mulher não é uma dona de casa exemplar, mas uma trabalhadora em ascensão; seu filho adolescente é fã dos grandes astros do rap; sua filha de 15 anos, além de não demonstrar recato, faz de tudo para impressionar os garotos; e a caçula, que não tem nada de dócil e obediente, é contestadora e esperta o suficiente para superar a argumentação do pai na maioria absoluta das vezes.', 'serie', 3, 1),
 (21, 'A Chegada', 'https://www.papodecinema.com.br/wp-content/uploads/2016/10/20191229-poster.png', 'Naves alienígenas chegaram às principais cidades do mundo. Com a intenção de se comunicar com os visitantes, uma linguista e um militar são chamados para decifrar as estranhas mensagens dos visitantes.', 'filme', 4, 0),
 (22, 'Interestelar', 'https://musicart.xboxlive.com/7/b8841000-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080', 'As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.', 'filme', 4, 0),
 (23, 'Black Mirror', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTmR_Bf8eZ39HHFfqJUnXtZWwwYmza__2v6g&s', 'Contos de ficção científica que refletem o lado negro das telas e da tecnologia, mostrando que nem toda novidade traz só benefícios.', 'serie', 4, 0),
@@ -154,7 +160,7 @@ ALTER TABLE `obras`
 -- AUTO_INCREMENT for table `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `generos`
@@ -166,7 +172,7 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT for table `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
