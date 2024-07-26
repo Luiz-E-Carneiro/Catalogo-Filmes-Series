@@ -30,9 +30,9 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
             }
 
         ?>
-            <div class='w-2/5 h-fit bg-[#191919] flex flex-col gap-2 p-4 rounded-xl'>
-                <div class="w-full flex">
-                    <h2 class="py-4 text-white text-xl font-bold w-full"><?php echo $data[0]["titulo"] ?></h2>
+            <div class='w-2/5 h-fit bg-[#191919] flex flex-col gap-2 px-4 py-3 rounded-xl'>
+                <div class="w-full flex items-center border-b-2 border-white">
+                    <h2 class="py-2 text-white text-xl font-bold w-full"><?php echo $data[0]["titulo"] ?></h2>
                     <div class="w-fit flex gap-2">
                         <form action="./../backend/Pages/Edit_Review.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $review['id'] ?>">
@@ -47,7 +47,6 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
                             </button>
                         </form>
                     </div>
-                    <hr>
                 </div>
                 <div class="w-full px-2 flex gap-2">
                     <h4 class="text-white text-lg font-semibold"> Nota: </h4>
@@ -62,11 +61,3 @@ $reviews = $db->Select("SELECT * FROM avaliacoes");
 
     </div>
 </div>
-
-<!-- <footer class="w-full">
-                <a href="./../../backend/Pages/Description.php?id_obra= $reviw['id_obra']">
-                    <button class='p-4'>
-                        Acessar Obra
-                    </button>
-                </a>
-            </footer> -->
