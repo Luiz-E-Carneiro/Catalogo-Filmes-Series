@@ -117,7 +117,7 @@ include_once('./../Components/HeaderPages.php');
                     ?>
                 </button>
             </form>
-            <form action="./Edit.php" method="post">
+            <form action="./Edit_Obra.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
                 <button type="submit" class="bg-blue-400 p-2 rounded-lg font-bold text-lg text-slate-700 flex items-center gap-2">
                     <span class="material-symbols-outlined">edit</span>

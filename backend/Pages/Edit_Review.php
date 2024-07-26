@@ -50,4 +50,4 @@ include_once('./../Components/HeaderPages.php');
 
 <?php
 include_once('./../Components/Footer.php');
-?>
+?>  
