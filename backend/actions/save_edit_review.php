@@ -11,7 +11,7 @@ $query = "UPDATE avaliacoes
 $binds = [
     ":nota" => $_POST['nota'],
     ":observacoes" => $_POST['observacoes'],
-    ":id" => $_POST['id'],
+    ":id" => $_POST['id']
 ];
 
 $success = $db->execute($query, $binds);

@@ -55,10 +55,27 @@ include_once('./../Components/HeaderPages.php');
                         <span class="material-symbols-outlined">rate_review</span>
                     </button>
                 </form>
-            <?php } else { ?>
-                <h4 class="text-white font-bold text-4xl">
-                    Avaliação
-                </h4>
+            <?php } else { 
+
+                    $queryId = "SELECT a.id 
+                    FROM avaliacoes a JOIN obras o ON a.id_obra = o.id WHERE o.id = :id";
+                    $bindsId = [
+                    ":id" => $_POST["id"]
+                    ];
+
+                    $id_review = $db->Select($queryId, $bindsId);
+                ?>
+                <div class="flex flex-row justify-between">
+                    <h4 class="text-white font-bold text-4xl">
+                        Avaliação
+                    </h4>
+                    <form action="./Edit_Review.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id_review[0]['id'] ?>">
+                        <button class="bg-slate-500 text-white font-bold text-lg p-2 rounded">
+                            Editar Avaliação
+                        </button>
+                    </form>
+                </div>
                 <hr>
 
                 <?php $review = $db->Select("SELECT nota, observacoes FROM avaliacoes WHERE id_obra = :id_obra", [":id_obra" => $data['id']]) ?>
